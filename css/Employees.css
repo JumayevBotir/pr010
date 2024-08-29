@@ -249,8 +249,12 @@ label:active:after {
   
     background: linear-gradient(to bottom,  
     #EBF6EB 8%,  
-    #EBF6EB 8%,  #FFFFFF 8%,  #FFFFFF 98%, transparent 98%);
-    padding: 23px 20px;
+    #EBF6EB 8%,  #FFFFFF 8%,  #FFFFFF 100%, transparent 100%);
+   
+    padding-bottom: 5px;
+    padding-top: 23px;
+    padding-left: 20px;
+    padding-right: 20px;
     border-radius: 13px ;
     margin-right: 10px;
     clip-path: inset(0 0 0% 0);
