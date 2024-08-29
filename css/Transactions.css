@@ -255,7 +255,7 @@ label:active:after {
 .box-items{
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 19px;
 }
 .box-bottom{
     display: flex;
