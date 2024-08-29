@@ -251,9 +251,11 @@ label:active:after {
     background-color: #0AC60A;
     width: 200px;
 }
+
 .box-items{
     display: flex;
     align-items: center;
+    gap: 18px;
 }
 .box-bottom{
     display: flex;
