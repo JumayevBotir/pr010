@@ -195,6 +195,12 @@ label:active:after {
     width: 33%;
     height: 49vh;
 }
+.chartjs2{
+    width: 33%;
+}
+#myDoughnutChart{
+     width: 33%;
+}
 .card-bottom{
     display: flex;
     justify-content: space-between;
@@ -329,4 +335,7 @@ label:active:after {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+.chartjs{
+    width: 64%;
 }

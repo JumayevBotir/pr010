@@ -159,7 +159,7 @@
             <div class="wrap">
                 <div class="wrap-left">
 
-                    <div class="wrap-left_top">
+                    <!-- <div class="wrap-left_top">
                         <h2 class="wrap-title">Finances</h2>
                         <div class="wrap-inner">
                             <div class="wrap-in">
@@ -173,12 +173,17 @@
                         </div>
                     </div>
                     <hr>
-
-
-                    <img src="./img/wrapstatistika.png" alt="" class="wrap-statistika">
+                    <img src="./img/wrapstatistika.png" alt="" class="wrap-statistika"> -->
+                    <div class="chartjs">
+                        <div class="ichki">
+                            <canvas id="myBarChart"></canvas>
+                        </div>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script src="app.js"></script>
+                    </div>
                 </div>
                 <div class="wrap-right">
-                    <div class="wrap-right_top">
+                    <!-- <div class="wrap-right_top">
                         <h2 class="wrap-right_title">
                             Income Statistics
                         </h2>
@@ -205,7 +210,10 @@
                             <h2 class="wrap-right_subtitle_3">16%</h2>
                             <p class="wrap-right_text">Diagnostic Services</p>
                         </div>
-                    </div>
+                    </div> -->
+                    <canvas id="myDoughnutChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
                 </div>
             </div>
             <div class="wrapper">
@@ -326,6 +334,105 @@
 
         </div>
     </div>
+    <script>
+        const ctx = document.getElementById('myBarChart').getContext('2d');
+
+const myBarChart = new Chart(ctx, {
+    type: 'bar', // Grafik turi (bar)
+    data: {
+        labels: ['Q1', 'Q2', 'Q3', 'Q4'], // X o'qi (kategoriya) nomlari
+        datasets: [{
+            label: 'Yillik Sotuvlar', // Grafikdagi tasvir
+            data: [12, 19, 3, 5], // Har bir ustun uchun qiymatlar
+            backgroundColor: 'rgba(75, 192, 192, 0.2)', // Ustunning fon rangi
+            borderColor: 'rgba(75, 192, 192, 1)', // Ustunning chegara rangi
+            borderWidth: 1 // Chegaraning qalinligi
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true // Y o'qining 0 dan boshlanishi
+            }
+        },
+        plugins: {
+            legend: {
+                position: 'top' // Legenda joylashuvi
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        return tooltipItem.dataset.label + ': ' + tooltipItem.raw;
+                    }
+                }
+            }
+        }
+    }
+});
+
+    </script>
+    <script>
+        datasets: [{
+    label: 'Yillik Sotuvlar',
+    data: [12, 19, 3, 5],
+    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+    borderColor: 'rgba(75, 192, 192, 1)',
+    borderWidth: 1,
+    barThickness: 30 // Ustunlarning qalinligini belgilash
+}]
+
+    </script>
+    <script>
+        const ctx1 = document.getElementById('myDoughnutChart').getContext('2d');
+
+const myDoughnutChart = new Chart(ctx1, {
+    type: 'doughnut', // Grafik turi (doughnut)
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green'],
+        datasets: [{
+            label: 'Color Distribution',
+            data: [10, 20, 30, 40],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.6)', // Red
+                'rgba(54, 162, 235, 0.6)',  // Blue
+                'rgba(255, 206, 86, 0.6)',  // Yellow
+                'rgba(75, 192, 192, 0.6)'   // Green
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        return tooltipItem.label + ': ' + tooltipItem.raw;
+                    }
+                }
+            },
+            // Animatsiya parametrlarini sozlash
+            animation: {
+                duration: 1500, // Animatsiya davomiyligi (ms)
+                easing: 'easeOutBounce', // Animatsiya turini tanlash
+                animateRotate: true, // Aylanish animatsiyasi
+                animateScale: true // O'lchamni animatsiya qilish
+            }
+        }
+    }
+});
+
+    </script>
+
 </body>
 
 </html>

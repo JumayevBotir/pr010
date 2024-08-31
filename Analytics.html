@@ -120,8 +120,18 @@
                 <div class="card">
                     <h1 class="card-title">Analytics</h1>
                     <div class="card-bottom">
-                        <img src="./img/statistikakun.png" alt="" class="card-img">
-                        <img src="./img/statistikakun2.png" alt="" class="card-pic">
+                        <!-- <img src="./img/statistikakun.png" alt="" class="card-img">
+                        <img src="./img/statistikakun2.png" alt="" class="card-pic"> -->
+                        <div class="chartjs">
+                            <canvas id="myChart"></canvas>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <script src="app.js"></script>
+                        </div>
+                        <div class="chartjs2">
+                            <canvas id="myDoughnutChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+                        </div>
                     </div>
                 </div>
                 <div class="wrap">
@@ -273,6 +283,78 @@
                 </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+const myChart = new Chart(ctx, {
+    type: 'bar', // Grafik turi (line, bar, radar, doughnut, pie, etc.)
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'Sales Data',
+            data: [12, 19, 3, 5, 2, 3, 7],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+<script>
+    const ctx1 = document.getElementById('myDoughnutChart').getContext('2d');
+
+const myDoughnutChart = new Chart(ctx1, {
+    type: 'doughnut', // Grafik turi (doughnut)
+    data: {
+        labels: ['Facebook', 'Instagram', 'Twitter', 'LinkedIn'],
+        datasets: [{
+            label: 'Social Media Usage',
+            data: [40, 30, 20, 10], // Har bir segmentning ulushi (protsentlar)
+            backgroundColor: [
+                'rgba(59, 89, 152, 0.6)', // Facebook
+                'rgba(193, 53, 132, 0.6)', // Instagram
+                'rgba(29, 161, 242, 0.6)', // Twitter
+                'rgba(0, 119, 181, 0.6)'   // LinkedIn
+            ],
+            borderColor: [
+                'rgba(59, 89, 152, 1)',
+                'rgba(193, 53, 132, 1)',
+                'rgba(29, 161, 242, 1)',
+                'rgba(0, 119, 181, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        let label = tooltipItem.label || '';
+                        if (label) {
+                            label += ': ' + tooltipItem.raw + '%';
+                        }
+                        return label;
+                    }
+                }
+            }
+        }
+    }
+});
+
+</script>
 </body>
 
 </html>
